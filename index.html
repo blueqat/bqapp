@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueqat App | ゲームとアプリのポータル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .game-card:hover { transform: scale(1.03); transition: all 0.2s ease; }
+        .tab-active { color: #2563eb; border-bottom: 3px solid #2563eb; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="text-2xl font-extrabold text-blue-600 cursor-pointer" onclick="showHome()">blueqat App</h1>
+                <div class="flex gap-4 text-gray-500">
+                    <!--<i class="fas fa-search cursor-pointer"></i>
+                    <i class="fas fa-question-circle cursor-pointer"></i>-->
+                </div>
+            </div>
+            <div class="flex gap-8 text-sm font-bold text-gray-500 overflow-x-auto">
+                <button id="tab-edu" onclick="filterType('edu')" class="pb-2 px-2 hover:text-blue-600 transition-all">教育・キッズ</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        
+        <section id="home-section">
+            
+            <div class="mb-10">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">特集：ゲーム＆小中学生プログラミング</h2>
+                    <!--<span class="text-blue-600 text-sm font-bold cursor-pointer">もっと見る</span>-->
+                </div>
+                <div id="feature-list" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    </div>
+            </div>
+
+            <h2 id="list-title" class="text-xl font-bold mb-4">人気のゲーム</h2>
+            <div id="game-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                </div>
+        </section>
+
+        <section id="detail-section" class="hidden max-w-2xl mx-auto">
+            <button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2">
+                <i class="fas fa-chevron-left"></i> 戻る
+            </button>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center md:text-left flex flex-col md:flex-row gap-8 items-center">
+                <img id="detail-img" src="" class="w-32 h-32 rounded-3xl shadow-md object-cover">
+                <div class="flex-1">
+                    <h2 id="detail-title" class="text-2xl font-bold mb-1"></h2>
+                    <p id="detail-category" class="text-blue-500 text-sm mb-6"></p>
+                    <div class="flex gap-2 justify-center md:justify-start">
+                        <a id="play-button" href="#" target="_blank" class="bg-blue-600 text-white px-10 py-2 rounded-full font-bold hover:bg-blue-700">プレイ</a>
+                        <button onclick="shareGame()" class="p-2 border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50">
+                            <i class="fas fa-share-alt text-gray-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 px-2 text-gray-600">
+                <h3 class="font-bold text-lg mb-2 text-black">このアプリについて</h3>
+                <p id="detail-desc" class="whitespace-pre-wrap leading-relaxed"></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // データ定義
+        const games = [
+            { id: 1, type: 'game', title: "ブロッホスフィアスピンスケーター", category: "パズル", img: "https://placehold.jp/24/3b82f6/ffffff/200x200.png?text=BLOCH", desc: "量子を使ってパズルをとこう", url: "https://bloch-sphere-bk-379803995398.us-west1.run.app/" },
+            { id: 2, type: 'game', title: "クォンタム・サーキット", category: "パズル", img: "https://placehold.jp/24/10b981/ffffff/200x200.png?text=CIR", desc: "量子プログラミング学習", url: "https://copy-of-379803995398.us-west1.run.app/" },
+            { id: 3, type: 'app', title: "ロボプロ", category: "プログラミング", img: "https://placehold.jp/24/6366f1/ffffff/200x200.png?text=MEMO", desc: "ロボットの学習が学べる", url: "https://roboprogram.netlify.app/" },
+        ];
+
+        const featured = [
+            { id: 1, type: 'game', title: "ブロッホスフィアスピンスケーター", category: "パズル", img: "https://placehold.jp/24/3b82f6/ffffff/400x200.png?text=BLOCH", desc: "量子を使ってパズルをとこう", url: "https://bloch-sphere-bk-379803995398.us-west1.run.app/" },
+            { id: 2, type: 'game', title: "クォンタム・サーキット", category: "パズル", img: "https://placehold.jp/24/10b981/ffffff/400x200.png?text=CIR", desc: "量子プログラミング学習", url: "https://copy-of-379803995398.us-west1.run.app/" },
+            { id: 3, type: 'app', title: "ロボプロ", category: "プログラミング", img: "https://placehold.jp/24/6366f1/ffffff/400x200.png?text=MEMO", desc: "ロボットの学習が学べる", url: "https://roboprogram.netlify.app/" },
+        ];
+
+        let currentFilter = 'game';
+
+        function init() {
+            renderFeatured();
+            renderList();
+        }
+
+        // 特集セクションの描画
+        function renderFeatured() {
+            const container = document.getElementById('feature-list');
+            featured.forEach(f => {
+                const div = document.createElement('div');
+                div.className = "bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer game-card";
+                div.onclick = () => showDetail(f, true);
+                div.innerHTML = `
+                    <img src="${f.img}" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <p class="text-xs text-blue-500 font-bold">${f.category}</p>
+                        <h3 class="font-bold">${f.title}</h3>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // 一覧の描画
+        function renderList() {
+            const container = document.getElementById('game-list');
+            container.innerHTML = '';
+            const filtered = games.filter(g => g.type === currentFilter);
+            
+            filtered.forEach(g => {
+                const div = document.createElement('div');
+                div.className = "cursor-pointer game-card";
+                div.onclick = () => showDetail(g);
+                div.innerHTML = `
+                    <img src="${g.img}" class="w-full aspect-square rounded-2xl mb-2 object-cover shadow-sm border border-gray-50">
+                    <h3 class="text-xs font-bold truncate px-1">${g.title}</h3>
+                    <p class="text-[10px] text-gray-400 px-1">${g.category}</p>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('list-title').innerText = currentFilter === 'game' ? '人気のゲーム' : 'おすすめのアプリ';
+        }
+
+        function filterType(type) {
+            currentFilter = type;
+            // タブの見た目更新
+            ['game', 'app', 'edu'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.remove('tab-active');
+            });
+            document.getElementById(`tab-${type}`).classList.add('tab-active');
+            
+            showHome();
+            renderList();
+        }
+
+        function showDetail(item, isFeatured = false) {
+            let data = item;
+            if(!isFeatured && typeof item === 'number') {
+                data = games.find(g => g.id === item) || featured.find(f => f.id === item);
+            }
+            
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-category').innerText = data.category;
+            document.getElementById('detail-desc').innerText = data.desc;
+            document.getElementById('detail-img').src = data.img;
+            document.getElementById('play-button').href = data.url;
+            
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('detail-section').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            document.getElementById('home-section').classList.remove('hidden');
+            document.getElementById('detail-section').classList.add('hidden');
+        }
+
+        function shareGame() {
+            const title = document.getElementById('detail-title').innerText;
+            if (navigator.share) {
+                navigator.share({ title: title, url: window.location.href });
+            } else {
+                alert("URLをコピーしました！(デモ)");
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
