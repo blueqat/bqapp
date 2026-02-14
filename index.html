@@ -31,7 +31,7 @@
         body { font-family: 'Noto Sans JP', sans-serif; -webkit-tap-highlight-color: transparent; }
         .game-card:hover { transform: translateY(-4px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .tab-active { color: #01875f; border-bottom: 3px solid #01875f; }
-        .hidden { display: none; }
+        .hidden { display: none !important; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -40,11 +40,23 @@
     <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <h1 class="text-2xl font-bold text-gray-700 tracking-tight cursor-pointer" onclick="showHome()">
+                <h1 id="logo" class="text-2xl font-bold text-gray-700 tracking-tight cursor-pointer" onclick="showHome()">
                     <span class="text-blue-600">blueqat</span> App
                 </h1>
-                <div class="flex items-center gap-5 text-gray-500 text-lg">
-                    <i class="fas fa-search cursor-pointer hover:text-blue-600"></i>
+
+                <div id="search-bar" class="hidden flex-1 max-w-md mx-4">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="タイトル、会社名で検索..." 
+                               class="w-full bg-gray-100 border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        <i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i>
+                        <button onclick="toggleSearch()" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="header-icons" class="flex items-center gap-5 text-gray-500 text-lg">
+                    <i class="fas fa-search cursor-pointer hover:text-blue-600" onclick="toggleSearch()"></i>
                     <i class="fas fa-user-circle cursor-pointer hover:text-blue-600"></i>
                 </div>
             </div>
@@ -59,7 +71,7 @@
     <main class="max-w-6xl mx-auto px-4 py-8">
         
         <section id="home-section">
-            <div class="mb-12">
+            <div id="feature-container" class="mb-12">
                 <h2 class="text-xl font-bold mb-5 flex items-center gap-2 text-gray-800">
                     <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
                     特集：小中学生プログラミング
@@ -71,6 +83,11 @@
                 <h2 id="list-title" class="text-xl font-bold text-gray-800">人気のコンテンツ</h2>
             </div>
             <div id="game-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10"></div>
+            
+            <div id="no-results" class="hidden py-20 text-center text-gray-500">
+                <i class="fas fa-search fa-3x mb-4 opacity-20"></i>
+                <p>該当するアプリが見つかりません</p>
+            </div>
         </section>
 
         <section id="detail-section" class="hidden animate-in fade-in duration-300">
@@ -107,66 +124,64 @@
     </footer>
 
     <script>
-        const games = [
-            { 
-                id: 1, 
-                type: 'game', 
-                title: "ブロッホスフィアスピンスケーター", 
-                company: "Quantum Fabric",
-                category: "量子パズル", 
-                img: "https://placehold.jp/100/3b82f6/ffffff/400x400.png?text=BLOCH", 
-                desc: "量子ビットの状態を表す「ブロッホ球」を直感的に操作して、ターゲットの状態を目指すパズルゲームです。量子ネイティブへの第一歩！", 
-                url: "https://bloch-sphere-bk-379803995398.us-west1.run.app/" 
-            },
-            { 
-                id: 2, 
-                type: 'game', 
-                title: "クォンタム・サーキット", 
-                company: "Quantum Fabric",
-                category: "量子学習", 
-                img: "https://placehold.jp/100/10b981/ffffff/400x400.png?text=CIRCUIT", 
-                desc: "量子ゲートを並べて回路を構成し、目的の出力を得るパズル形式の学習コンテンツです。量子プログラミングの基礎が身につきます。", 
-                url: "https://copy-of-379803995398.us-west1.run.app/" 
-            },
-            { 
-                id: 3, 
-                type: 'app', 
-                title: "ロボプロ", 
-                company: "Quantum Fabric",
-                category: "プログラミング", 
-                img: "https://placehold.jp/100/6366f1/ffffff/400x400.png?text=ROBO", 
-                desc: "ロボットの制御アルゴリズムを学べる教育アプリ。論理的な思考とプログラミングの基礎を楽しく習得できます。", 
-                url: "https://roboprogram.netlify.app/" 
-            },
-            { 
-                id: 4, 
-                type: 'game', 
-                title: "パズルで始める量子アニーリング", 
-                company: "Vignette & Clarity",
-                category: "量子パズル", 
-                img: "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=QUBO", 
-                desc: "組合せ最適化問題を解く「量子アニーリング」の仕組みを、パズル感覚で体験。QUBOモデルの構築を直感的に理解しましょう。", 
-                url: "https://vigne-cla.xxxx.jp/qubo-play/" 
-            }
-        ];
-
-        const featured = [
-            { id: 3, title: "ロボプロ", category: "プログラミング教育", img: "https://placehold.jp/20/6366f1/ffffff/600x320.png?text=ロボプロで学ぶプログラミング", desc: "ロボットを動かしながら論理的思考を養おう！" },
-            { id: 1, title: "ブロッホスフィア", category: "次世代パズル", img: "https://placehold.jp/20/3b82f6/ffffff/600x320.png?text=はじめての量子体験", desc: "最新科学「量子」の世界をゲームで体験。" },
-            { id: 4, title: "量子アニーリング", category: "思考パズル", img: "https://placehold.jp/20/f59e0b/ffffff/600x320.png?text=パズルで解く最適化", desc: "難しい計算をパズルにして楽しもう！" }
-        ];
-
+        let games = [];
+        let featured = [];
         let currentFilter = 'all';
+        let searchQuery = '';
+
+        // データ読み込み
+        async function loadData() {
+            try {
+                const response = await fetch('games.json');
+                const data = await response.json();
+                games = data.games;
+                featured = data.featured;
+                init();
+            } catch (error) {
+                console.error("JSONの読み込みに失敗しました:", error);
+            }
+        }
 
         function init() {
             renderFeatured();
             renderList();
+            
+            // 検索イベント
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                renderList();
+                document.getElementById('feature-container').style.display = searchQuery ? 'none' : 'block';
+            });
+        }
+
+        function toggleSearch() {
+            const bar = document.getElementById('search-bar');
+            const logo = document.getElementById('logo');
+            const icons = document.getElementById('header-icons');
+            const input = document.getElementById('search-input');
+
+            if (bar.classList.contains('hidden')) {
+                bar.classList.remove('hidden');
+                logo.classList.add('hidden');
+                icons.classList.add('hidden');
+                input.focus();
+            } else {
+                bar.classList.add('hidden');
+                logo.classList.remove('hidden');
+                icons.classList.remove('hidden');
+                input.value = '';
+                searchQuery = '';
+                document.getElementById('feature-container').style.display = 'block';
+                renderList();
+            }
         }
 
         function renderFeatured() {
             const container = document.getElementById('feature-list');
+            container.innerHTML = '';
             featured.forEach(f => {
                 const gameData = games.find(g => g.id === f.id);
+                if(!gameData) return;
                 const div = document.createElement('div');
                 div.className = "bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer game-card";
                 div.onclick = () => showDetail(gameData);
@@ -176,40 +191,50 @@
                         <p class="text-[10px] text-blue-600 font-bold uppercase mb-1">${f.category}</p>
                         <h3 class="font-bold text-gray-800 text-lg">${f.title}</h3>
                         <p class="text-xs text-gray-500 mt-1">${f.desc}</p>
-                    </div>
-                `;
+                    </div>`;
                 container.appendChild(div);
             });
         }
 
         function renderList() {
             const container = document.getElementById('game-list');
+            const noResults = document.getElementById('no-results');
             container.innerHTML = '';
-            const filtered = currentFilter === 'all' ? games : games.filter(g => g.type === currentFilter);
             
-            filtered.forEach(g => {
-                const div = document.createElement('div');
-                div.className = "cursor-pointer game-card group";
-                div.onclick = () => showDetail(g);
-                div.innerHTML = `
-                    <div class="aspect-square mb-3">
-                        <img src="${g.img}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-sm font-bold truncate text-gray-800">${g.title}</h3>
-                        <p class="text-[11px] text-[#01875f] font-bold">${g.company}</p>
-                        <p class="text-[11px] text-gray-400">${g.category}</p>
-                    </div>
-                `;
-                container.appendChild(div);
+            const filtered = games.filter(g => {
+                const matchesType = (currentFilter === 'all' || g.type === currentFilter);
+                const matchesSearch = (
+                    g.title.toLowerCase().includes(searchQuery) || 
+                    g.company.toLowerCase().includes(searchQuery)
+                );
+                return matchesType && matchesSearch;
             });
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                filtered.forEach(g => {
+                    const div = document.createElement('div');
+                    div.className = "cursor-pointer game-card group";
+                    div.onclick = () => showDetail(g);
+                    div.innerHTML = `
+                        <div class="aspect-square mb-3">
+                            <img src="${g.img}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
+                        </div>
+                        <div class="px-1">
+                            <h3 class="text-sm font-bold truncate text-gray-800">${g.title}</h3>
+                            <p class="text-[11px] text-[#01875f] font-bold">${g.company}</p>
+                            <p class="text-[11px] text-gray-400">${g.category}</p>
+                        </div>`;
+                    container.appendChild(div);
+                });
+            }
         }
 
         function filterType(type) {
             currentFilter = type;
-            ['all', 'game', 'app'].forEach(t => {
-                document.getElementById(`tab-${t}`).classList.remove('tab-active');
-            });
+            ['all', 'game', 'app'].forEach(t => document.getElementById(`tab-${t}`).classList.remove('tab-active'));
             document.getElementById(`tab-${type}`).classList.add('tab-active');
             renderList();
         }
@@ -221,7 +246,6 @@
             document.getElementById('detail-desc').innerText = data.desc;
             document.getElementById('detail-img').src = data.img;
             document.getElementById('play-button').href = data.url;
-            
             document.getElementById('home-section').classList.add('hidden');
             document.getElementById('detail-section').classList.remove('hidden');
             window.scrollTo(0, 0);
@@ -242,7 +266,7 @@
             }
         }
 
-        init();
+        loadData();
     </script>
 </body>
 </html>
