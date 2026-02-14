@@ -154,13 +154,14 @@
             });
         }
 
-        // GAイベント送信関数
+        // GAイベント送信関数（ここを書き換えるとより確実です）
         function trackAppClick() {
             if (currentSelectedApp) {
                 gtag('event', 'app_play_click', {
                     'app_name': currentSelectedApp.title,
                     'app_company': currentSelectedApp.company,
-                    'app_category': currentSelectedApp.category
+                    'app_category': currentSelectedApp.category,
+                    'transport_type': 'beacon' // これを追加
                 });
             }
         }
