@@ -240,12 +240,20 @@
         const noResults = document.getElementById('no-results');
         container.innerHTML = '';
         
-        const filtered = games.filter(g => {
+        // 1. まずフィルタリングを行う
+        let filtered = games.filter(g => {
             const matchesType = (currentFilter === 'all' || g.type === currentFilter);
             const matchesSearch = (g.title.toLowerCase().includes(searchQuery) || g.company.toLowerCase().includes(searchQuery));
             return matchesType && matchesSearch;
         });
 
+        // 2. フィルタリングされた結果をランダムにシャッフル (追加部分)
+        for (let i = filtered.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+        }
+
+        // 3. 描画処理（以下は既存と同じ）
         if (filtered.length === 0) {
             noResults.classList.remove('hidden');
         } else {
@@ -255,7 +263,6 @@
                 div.className = "cursor-pointer game-card group";
                 div.onclick = () => showDetail(g);
                 
-                // アイコン画像の更新を強制
                 const imgSrc = getCacheBustingUrl(g.img);
                 
                 div.innerHTML = `
