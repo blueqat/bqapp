@@ -122,6 +122,16 @@
             "img": "thumbnail/autoQAOA_200x200.png", 
             "desc": "少数量子ビットでのQAOAの自動化。ハミルトニアンを作ると回路と結果が出ます。", 
             "url": "https://minatoyuichiro.github.io/autoqaoa2/" 
+        },
+        { 
+            "id": 11, 
+            "type": "app", 
+            "title": "量子アニーリングシミュレーション", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/QA_200x200.png", 
+            "desc": "このプログラムは、量子アニーリング（量子焼きなまし法）の過程を可視化しています。", 
+            "url": "https://minatoyuichiro.github.io/js_annealing/" 
         }
     ]
 }
