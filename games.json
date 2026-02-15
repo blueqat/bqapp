@@ -62,6 +62,16 @@
             "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=QUBO", 
             "desc": "組合せ最適化問題を解く「量子アニーリング」の仕組みを、パズル感覚で体験。QUBOモデルの構築を理解しましょう。", 
             "url": "https://vigne-cla.xxxx.jp/qubo-play/" 
+        },
+        { 
+            "id": 5, 
+            "type": "game", 
+            "title": "QUANTUM SUDOKU SOLVER", 
+            "company": "Yuichiro Minato", 
+            "category": "量子パズル", 
+            "img": "thumbnail/sudoku_200x200.png", 
+            "desc": "数独パズルを作ったり解いたりできるソルバーです。", 
+            "url": "https://minatoyuichiro.github.io/sudoku_js_ising/" 
         }
     ]
 }
