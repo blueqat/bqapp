@@ -72,6 +72,16 @@
             "img": "thumbnail/sudoku_200x200.png", 
             "desc": "数独パズルを作ったり解いたりできるソルバーです。", 
             "url": "https://minatoyuichiro.github.io/sudoku_js_ising/" 
+        },
+        { 
+            "id": 6, 
+            "type": "app", 
+            "title": "色塗りわけ2015", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/color_200x200.png", 
+            "desc": "このプログラムは2015年に作成された、D-Waveマシンで実行された「カナダの地図塗り分け（グラフ彩色問題）」をシミュレートしたものです。", 
+            "url": "https://minatoyuichiro.github.io/graphcoloring/" 
         }
     ]
 }
