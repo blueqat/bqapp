@@ -4,14 +4,14 @@
             "id": 3, 
             "title": "ロボプロ", 
             "category": "プログラミング教育", 
-            "img": "thumbnail/robo_400x200.webp", 
+            "img": "thumbnail/robo_640x320.png", 
             "desc": "ロボットを動かしながら論理的思考を養おう！" 
         },
         { 
             "id": 1, 
             "title": "ブロッホスフィア", 
             "category": "次世代パズル", 
-            "img": "thumbnail/bloch_400x200.webp", 
+            "img": "thumbnail/bloch_640x320.png", 
             "desc": "最新科学「量子」の世界をゲームで体験。" 
         },
         { 
@@ -29,7 +29,7 @@
             "title": "ブロッホスフィアスピンスケーター", 
             "company": "Quantum Fabric", 
             "category": "量子パズル", 
-            "img": "thumbnail/bloch_200x200.webp", 
+            "img": "thumbnail/bloch_200x200.png", 
             "desc": "量子ビットの状態を表す「ブロッホ球」を直感的に操作して、ターゲットの状態を目指すパズルゲームです。", 
             "url": "https://bloch-sphere-bk-379803995398.us-west1.run.app/" 
         },
@@ -39,7 +39,7 @@
             "title": "クォンタム・サーキット", 
             "company": "Quantum Fabric", 
             "category": "量子学習", 
-            "img": "thumbnail/circuit_200x200.webp", 
+            "img": "thumbnail/circuit_200x200.png", 
             "desc": "量子ゲートを並べて回路を構成し、目的の出力を得るパズル形式の学習コンテンツです。", 
             "url": "https://copy-of-379803995398.us-west1.run.app/" 
         },
@@ -49,7 +49,7 @@
             "title": "ロボプロ", 
             "company": "Quantum Fabric", 
             "category": "プログラミング", 
-            "img": "thumbnail/robo_200x200.webp", 
+            "img": "thumbnail/robo_200x200.png", 
             "desc": "ロボットの制御アルゴリズムを学べる教育アプリ。論理的な思考とプログラミングの基礎を楽しく習得できます。", 
             "url": "https://roboprogram.netlify.app/" 
         },
