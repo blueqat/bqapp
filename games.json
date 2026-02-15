@@ -82,6 +82,16 @@
             "img": "thumbnail/color_200x200.png", 
             "desc": "このプログラムは2015年に作成された、D-Waveマシンで実行された「カナダの地図塗り分け（グラフ彩色問題）」をシミュレートしたものです。", 
             "url": "https://minatoyuichiro.github.io/graphcoloring/" 
+        },
+        { 
+            "id": 7, 
+            "type": "app", 
+            "title": "QUBO Studio", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/qubo_200x200.png", 
+            "desc": "QUBOのプログラミングを学ぶアプリ。Chromeでの動作推奨", 
+            "url": "https://minatoyuichiro.github.io/qubostudio/" 
         }
     ]
 }
