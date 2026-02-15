@@ -142,6 +142,16 @@
             "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=RACE", 
             "desc": "あなたは人類代表として、量子アニーリングAIとの4×4数独リアルタイム早解き対決に挑む。", 
             "url": "https://candid-pika-40b53f.netlify.app/" 
+        },
+        { 
+            "id": 13, 
+            "type": "app", 
+            "title": "Quantum Race", 
+            "company": "QUANTUM GLITCH", 
+            "category": "ゲーム", 
+            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=GLITCH", 
+            "desc": "", 
+            "url": "https://quantum-glitch-entangled-states-379803995398.us-west1.run.app/" 
         }
     ]
 }
