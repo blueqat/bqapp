@@ -92,6 +92,16 @@
             "img": "thumbnail/qubo_200x200.png", 
             "desc": "QUBOのプログラミングを学ぶアプリ。Chromeでの動作推奨", 
             "url": "https://minatoyuichiro.github.io/qubostudio/" 
+        },
+        { 
+            "id": 8, 
+            "type": "app", 
+            "title": "Tensor Nexus", 
+            "company": "Quantum Fabric", 
+            "category": "アプリ", 
+            "img": "thumbnail/https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tensor", 
+            "desc": "Tensor Networkを学んで遊べる", 
+            "url": "https://copy-of-tensor-nexus-379803995398.us-west1.run.app/" 
         }
     ]
 }
