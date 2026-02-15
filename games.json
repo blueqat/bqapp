@@ -102,6 +102,16 @@
             "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tensor", 
             "desc": "Tensor Networkを学んで遊べる", 
             "url": "https://copy-of-tensor-nexus-379803995398.us-west1.run.app/" 
+        },
+        { 
+            "id": 9, 
+            "type": "app", 
+            "title": "QS Studio", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/QS_200x200.png", 
+            "desc": "5量子ビットの量子コンピュータシミュレータ", 
+            "url": "https://minatoyuichiro.github.io/gatestudio/" 
         }
     ]
 }
