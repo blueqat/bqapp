@@ -129,10 +129,13 @@
         let searchQuery = '';
         let currentSelectedApp = null;
 
-        // データ読み込み
+        // データ読み込み（キャッシュ対策版）
         async function loadData() {
             try {
-                const response = await fetch('games.json');
+                // ファイル名の後ろにタイムスタンプを付けてキャッシュを無効化
+                const cacheBuster = new Date().getTime();
+                const response = await fetch(`games.json?v=${cacheBuster}`);
+                
                 const data = await response.json();
                 games = data.games;
                 featured = data.featured;
@@ -143,7 +146,7 @@
                 const appId = params.get('id');
                 if (appId) {
                     const targetApp = games.find(g => g.id == appId);
-                    if (targetApp) showDetail(targetApp, false); // 初期表示時は履歴追加しない
+                    if (targetApp) showDetail(targetApp, false);
                 }
             } catch (error) {
                 console.error("JSONの読み込みに失敗しました:", error);
