@@ -112,6 +112,16 @@
             "img": "thumbnail/QS_200x200.png", 
             "desc": "5量子ビットの量子コンピュータシミュレータ", 
             "url": "https://minatoyuichiro.github.io/gatestudio/" 
+        },
+        { 
+            "id": 10, 
+            "type": "app", 
+            "title": "autoQAOA", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/autoQAOA_200x200.png", 
+            "desc": "少数量子ビットでのQAOAの自動化。ハミルトニアンを作ると回路と結果が出ます。", 
+            "url": "https://minatoyuichiro.github.io/autoqaoa2/" 
         }
     ]
 }
