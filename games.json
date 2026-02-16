@@ -106,7 +106,7 @@
             "title": "Tensor Nexus", 
             "company": "Quantum Fabric", 
             "category": "アプリ", 
-            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tensor", 
+            "img": "thumbnail/tensor_200x200.png", 
             "desc": "Tensor Networkを学んで遊べる", 
             "url": "https://copy-of-tensor-nexus-379803995398.us-west1.run.app/" 
         },
