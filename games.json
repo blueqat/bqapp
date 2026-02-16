@@ -156,7 +156,7 @@
             "title": "QUANTUM GLITCH", 
             "company": "Quantum Fabric", 
             "category": "ゲーム", 
-            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=GLITCH", 
+            "img": "thumbnail/glitch_200x200.png", 
             "desc": "", 
             "url": "https://quantum-glitch-entangled-states-379803995398.us-west1.run.app/" 
         }
