@@ -102,7 +102,7 @@
         },
         { 
             "id": 8, 
-            "type": "app", 
+            "type": "game", 
             "title": "Tensor Nexus", 
             "company": "Quantum Fabric", 
             "category": "アプリ", 
@@ -142,7 +142,7 @@
         },
         { 
             "id": 12, 
-            "type": "app", 
+            "type": "game", 
             "title": "Quantum Race", 
             "company": "Quantum Fabric", 
             "category": "ゲーム", 
@@ -152,13 +152,23 @@
         },
         { 
             "id": 13, 
-            "type": "app", 
+            "type": "game", 
             "title": "QUANTUM GLITCH", 
             "company": "Quantum Fabric", 
             "category": "ゲーム", 
             "img": "thumbnail/glitch_200x200.png", 
             "desc": "", 
             "url": "https://quantum-glitch-entangled-states-379803995398.us-west1.run.app/" 
+        },
+        { 
+            "id": 14, 
+            "type": "game", 
+            "title": "QUANTUM REVERSI", 
+            "company": "Quantum Fabric", 
+            "category": "ゲーム", 
+            "img": "thumbnail/reversi_200x200.png", 
+            "desc": "", 
+            "url": "https://quantum-reversi-379803995398.us-west1.run.app/" 
         }
     ]
 }
