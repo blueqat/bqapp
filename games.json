@@ -27,6 +27,13 @@
             "category": "ゲーム", 
             "img": "thumbnail/race_640x320.png", 
             "desc": "あなたは人類代表として、量子アニーリングAIとの4×4数独リアルタイム早解き対決に挑む。"
+        },
+        { 
+            "id": 14, 
+            "title": "QUANTUM REVERSI", 
+            "category": "ゲーム", 
+            "img": "thumbnail/reversi_640x320.png", 
+            "desc": "新しい量子インスパイアードのリバーシ！"
         }
     ],
     "games": [
