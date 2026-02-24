@@ -186,6 +186,26 @@
             "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=OVER", 
             "desc": "", 
             "url": "https://multi-worldoverdrive.netlify.app/" 
+        },
+        { 
+            "id": 16, 
+            "type": "app", 
+            "title": "AI店長", 
+            "company": "Yuichiro Minato", 
+            "category": "アプリ", 
+            "img": "thumbnail/shift_200x200.png", 
+            "desc": "AI店長がバイトのシフトを自動で決めてくれるデモアプリ", 
+            "url": "https://minatoyuichiro.github.io/aitencho/" 
+        },
+        { 
+            "id": 17, 
+            "type": "app", 
+            "title": "本格鉄道シミュレータ", 
+            "company": "Quantum Fabric", 
+            "category": "アプリ", 
+            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Train", 
+            "desc": "電車のシミュレーションをする際の線路の設計ができます。", 
+            "url": "https://flourishing-parfait-c1cc58.netlify.app/" 
         }
     ]
 }
