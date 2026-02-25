@@ -216,6 +216,16 @@
             "img": "thumbnail/route_200x200.png", 
             "desc": "ルート検索をしてくれるデモンストレーションアプリ。", 
             "url": "https://minatoyuichiro.github.io/route/" 
+        },
+        { 
+            "id": 18, 
+            "type": "game", 
+            "title": "Quantum Tactics", 
+            "company": "Quantum Fabric", 
+            "category": "ゲーム", 
+            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tactics", 
+            "desc": "", 
+            "url": "https://quantum-tactics.netlify.app/" 
         }
     ]
 }
