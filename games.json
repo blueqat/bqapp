@@ -226,6 +226,16 @@
             "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tactics", 
             "desc": "", 
             "url": "https://quantum-tactics.netlify.app/" 
+        },
+        { 
+            "id": 18, 
+            "type": "game", 
+            "title": "Quantum Arena", 
+            "company": "Yuichiro Minato", 
+            "category": "ゲーム", 
+            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=ARENA", 
+            "desc": "", 
+            "url": "https://num.blueqat.app" 
         }
     ]
 }
