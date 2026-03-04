@@ -12,13 +12,8 @@
       gtag('config', 'G-KFNR4KHBZQ');
     </script>
     
-    <title>blueqat App | 量子ゲームとアプリのポータル</title>
-    <meta name="description" content="量子コンピューティングを遊びながら学べる！量子ゲーム、業務アプリ、シミュレータ、教育ツールのポータルサイト。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://blueqat.app/">
-    <meta property="og:title" content="blueqat App | ゲームとアプリのポータル">
-    <meta property="og:image" content="https://blueqat.app/og-image.png">
-    <meta name="twitter:site" content="@blueqat_jp">
+    <title>blueqat App | 量子技術ポータル</title>
+    <meta name="description" content="量子ゲーム、業務アプリ、シミュレータ、教育ツールのポータルサイト。">
     <link rel="icon" href="https://blueqat.app/favicon.ico">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -70,9 +65,7 @@
 
     <main class="max-w-6xl mx-auto px-4 py-8">
         <section id="home-section">
-            <div id="category-container">
-                </div>
-            
+            <div id="category-container"></div>
             <div id="no-results" class="hidden py-20 text-center text-gray-500">
                 <i class="fas fa-search fa-3x mb-4 opacity-20"></i>
                 <p>該当するアプリが見つかりません</p>
@@ -83,21 +76,19 @@
             <button onclick="showHome()" class="mb-8 text-gray-500 font-medium flex items-center gap-2 hover:text-blue-600 transition">
                 <i class="fas fa-arrow-left"></i> 一覧に戻る
             </button>
-            
             <div class="flex flex-col md:flex-row gap-10 items-start">
                 <img id="detail-img" src="" class="w-32 h-32 md:w-48 md:h-48 rounded-[2.2rem] shadow-xl border border-gray-50 object-cover">
                 <div class="flex-1">
                     <h2 id="detail-title" class="text-3xl md:text-4xl font-bold mb-0.5"></h2>
                     <p id="detail-company" class="text-[#01875f] font-bold text-lg mb-0.5"></p>
-                    <p id="detail-category" class="text-gray-500 text-sm mb-6"></p>
+                    <p id="detail-category-label" class="text-gray-500 text-sm mb-6"></p>
                     
                     <div class="flex gap-3 mb-10">
-                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg shadow-green-50 transition-all text-center">今すぐ遊ぶ</a>
+                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg transition-all text-center">今すぐ遊ぶ</a>
                         <button onclick="shareGame()" class="p-3 border border-gray-200 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-50 transition">
                             <i class="fas fa-share-alt text-gray-500"></i>
                         </button>
                     </div>
-                    
                     <div class="border-t border-gray-100 pt-8">
                         <h3 class="font-bold text-lg mb-4 text-gray-900">このアプリについて</h3>
                         <p id="detail-desc" class="text-gray-600 leading-relaxed text-base whitespace-pre-wrap"></p>
@@ -113,14 +104,14 @@
     </footer>
 
 <script>
-    let games = [];
+    let appsData = [];
     let currentFilter = 'all';
     let searchQuery = '';
     let currentSelectedApp = null;
 
-    // カテゴリ定義
+    // 表示用ラベルの一括管理
     const CATEGORY_CONFIG = [
-        { id: 'game', label: '量子ゲーム' },
+        { id: 'game', label: 'ゲーム' },
         { id: 'business', label: '業務アプリ' },
         { id: 'simulator', label: 'シミュレータ' },
         { id: 'education', label: '教育' }
@@ -134,51 +125,44 @@
     async function loadData() {
         try {
             const response = await fetch(getCacheBustingUrl('games.json'));
-            const data = await response.json();
-            games = data.games;
+            appsData = await response.json(); // 直列配列を読み込み
             init();
 
-            // URLパラメータによる詳細表示の復元
+            // URLパラメータ ?id=XX のチェック
             const params = new URLSearchParams(window.location.search);
             const appId = params.get('id');
             if (appId) {
-                const targetApp = games.find(g => g.id == appId);
-                if (targetApp) showDetail(targetApp, false);
+                const target = appsData.find(a => a.id == appId);
+                if (target) showDetail(target, false);
             }
-        } catch (error) {
-            console.error("JSONの読み込みに失敗しました:", error);
-        }
+        } catch (e) { console.error("Data load failed", e); }
     }
 
     function init() {
-        renderCategoryLists();
-        
+        renderList();
         document.getElementById('search-input').addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase();
-            renderCategoryLists();
+            renderList();
         });
-
-        window.onpopstate = (event) => {
-            const params = new URLSearchParams(window.location.search);
-            const appId = params.get('id');
-            if (appId) {
-                const targetApp = games.find(g => g.id == appId);
-                if (targetApp) updateDetailUI(targetApp);
+        window.onpopstate = () => {
+            const id = new URLSearchParams(window.location.search).get('id');
+            if (id) {
+                const target = appsData.find(a => a.id == id);
+                if (target) updateDetailUI(target);
             } else {
                 showHomeUI();
             }
         };
     }
 
-    function renderCategoryLists() {
+    function renderList() {
         const container = document.getElementById('category-container');
         const noResults = document.getElementById('no-results');
         container.innerHTML = '';
 
-        // フィルタリング
-        let filtered = games.filter(g => {
-            const matchesType = (currentFilter === 'all' || g.type === currentFilter);
-            const matchesSearch = (g.title.toLowerCase().includes(searchQuery) || g.company.toLowerCase().includes(searchQuery));
+        let filtered = appsData.filter(a => {
+            const matchesType = (currentFilter === 'all' || a.type === currentFilter);
+            const matchesSearch = (a.title.toLowerCase().includes(searchQuery) || a.company.toLowerCase().includes(searchQuery));
             return matchesType && matchesSearch;
         });
 
@@ -189,19 +173,14 @@
         noResults.classList.add('hidden');
 
         if (searchQuery) {
-            // 検索時は一括表示
             renderSection(container, "検索結果", filtered);
         } else if (currentFilter !== 'all') {
-            // 特定カテゴリ選択時
-            const catInfo = CATEGORY_CONFIG.find(c => c.id === currentFilter);
-            renderSection(container, catInfo ? catInfo.label : "コンテンツ", filtered);
+            const config = CATEGORY_CONFIG.find(c => c.id === currentFilter);
+            renderSection(container, config?.label || "コンテンツ", filtered);
         } else {
-            // 「すべて」表示時：定義順にセクションを生成
-            CATEGORY_CONFIG.forEach(cat => {
-                const catApps = filtered.filter(g => g.type === cat.id);
-                if (catApps.length > 0) {
-                    renderSection(container, cat.label, catApps);
-                }
+            CATEGORY_CONFIG.forEach(config => {
+                const items = filtered.filter(a => a.type === config.id);
+                if (items.length > 0) renderSection(container, config.label, items);
             });
         }
     }
@@ -209,28 +188,26 @@
     function renderSection(parent, title, items) {
         const section = document.createElement('div');
         section.className = "mb-12";
-        
         section.innerHTML = `
             <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-800">
-                <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
-                ${title}
+                <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>${title}
             </h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10"></div>
         `;
-
         const grid = section.querySelector('div');
-        items.forEach(g => {
+        items.forEach(a => {
+            const label = CATEGORY_CONFIG.find(c => c.id === a.type)?.label || "";
             const div = document.createElement('div');
             div.className = "cursor-pointer game-card group";
-            div.onclick = () => showDetail(g);
+            div.onclick = () => showDetail(a);
             div.innerHTML = `
                 <div class="aspect-square mb-3">
-                    <img src="${getCacheBustingUrl(g.img)}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
+                    <img src="${getCacheBustingUrl(a.img)}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
                 </div>
                 <div class="px-1">
-                    <h3 class="text-sm font-bold truncate text-gray-800">${g.title}</h3>
-                    <p class="text-[11px] text-[#01875f] font-bold">${g.company}</p>
-                    <p class="text-[11px] text-gray-400">${g.category}</p>
+                    <h3 class="text-sm font-bold truncate text-gray-800">${a.title}</h3>
+                    <p class="text-[11px] text-[#01875f] font-bold">${a.company}</p>
+                    <p class="text-[11px] text-gray-400">${label}</p>
                 </div>`;
             grid.appendChild(div);
         });
@@ -247,13 +224,13 @@
     }
 
     function updateDetailUI(data) {
+        const label = CATEGORY_CONFIG.find(c => c.id === data.type)?.label || "";
         document.getElementById('detail-title').innerText = data.title;
         document.getElementById('detail-company').innerText = data.company;
-        document.getElementById('detail-category').innerText = data.category;
+        document.getElementById('detail-category-label').innerText = label;
         document.getElementById('detail-desc').innerText = data.desc;
         document.getElementById('detail-img').src = getCacheBustingUrl(data.img);
         document.getElementById('play-button').href = data.url;
-        
         document.getElementById('home-section').classList.add('hidden');
         document.getElementById('detail-section').classList.remove('hidden');
         window.scrollTo(0, 0);
@@ -272,45 +249,36 @@
     }
 
     function toggleSearch() {
-        const bar = document.getElementById('search-bar');
-        const logo = document.getElementById('logo');
-        const icons = document.getElementById('header-icons');
-        const input = document.getElementById('search-input');
+        const bar = document.getElementById('search-bar'), logo = document.getElementById('logo'), icons = document.getElementById('header-icons');
         if (bar.classList.contains('hidden')) {
-            bar.classList.remove('hidden'); logo.classList.add('hidden'); icons.classList.add('hidden'); input.focus();
+            bar.classList.remove('hidden'); logo.classList.add('hidden'); icons.classList.add('hidden');
+            document.getElementById('search-input').focus();
         } else {
-            bar.classList.add('hidden'); logo.classList.remove('hidden'); icons.classList.remove('hidden'); input.value = ''; searchQuery = '';
-            renderCategoryLists();
+            bar.classList.add('hidden'); logo.classList.remove('hidden'); icons.classList.remove('hidden');
+            document.getElementById('search-input').value = ''; searchQuery = ''; renderList();
         }
     }
 
     function filterType(type) {
         currentFilter = type;
-        const tabs = ['all', 'game', 'business', 'simulator', 'education'];
-        tabs.forEach(t => {
+        ['all', 'game', 'business', 'simulator', 'education'].forEach(t => {
             const btn = document.getElementById(`tab-${t}`);
-            if(btn) btn.classList.toggle('tab-active', t === type);
+            if (btn) btn.classList.toggle('tab-active', t === type);
         });
-        renderCategoryLists();
+        renderList();
     }
 
     function trackAppClick() {
-        if (currentSelectedApp) {
-            gtag('event', 'app_play_click', {
-                'app_name': currentSelectedApp.title,
-                'app_company': currentSelectedApp.company
-            });
+        if (currentSelectedApp && window.gtag) {
+            gtag('event', 'app_play_click', { 'app_name': currentSelectedApp.title });
         }
     }
 
     function shareGame() {
         if (!currentSelectedApp) return;
-        const shareUrl = window.location.origin + window.location.pathname + `?id=${currentSelectedApp.id}`;
-        if (navigator.share) { 
-            navigator.share({ title: `blueqat App | ${currentSelectedApp.title}`, url: shareUrl }); 
-        } else { 
-            navigator.clipboard.writeText(shareUrl); alert("リンクをコピーしました！"); 
-        }
+        const url = window.location.origin + window.location.pathname + `?id=${currentSelectedApp.id}`;
+        if (navigator.share) { navigator.share({ title: currentSelectedApp.title, url: url }); }
+        else { navigator.clipboard.writeText(url); alert("コピーしました！"); }
     }
 
     loadData();
