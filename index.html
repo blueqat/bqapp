@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFNR4KHBZQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,19 +10,8 @@
       gtag('js', new Date());
       gtag('config', 'G-KFNR4KHBZQ');
     </script>
-    
     <title>blueqat App | ゲームとアプリのポータル</title>
-    <meta name="title" content="blueqat App | ゲームとアプリのポータル">
-    <meta name="description" content="量子コンピューティングを遊びながら学べる！「ブロッホスフィアスピンスケーター」や「クォンタム・サーキット」など、最新の量子ゲームとプログラミングアプリのポータルサイト。">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://blueqat.app/">
-    <meta property="og:title" content="blueqat App | ゲームとアプリのポータル">
-    <meta property="og:image" content="https://blueqat.app/og-image.png">
-    <meta name="twitter:site" content="@blueqat_jp">
-
-    <link rel="icon" href="https://blueqat.app/favicon.ico">
-
+    <meta name="description" content="量子コンピューティングを遊びながら学べる！量子ゲームとプログラミングアプリのポータルサイト。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -36,25 +24,19 @@
     </style>
 </head>
 <body class="bg-white text-gray-900">
-
     <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <h1 id="logo" class="text-2xl font-bold text-gray-700 tracking-tight cursor-pointer" onclick="showHome()">
                     <span class="text-blue-600">blueqat</span> App
                 </h1>
-
                 <div id="search-bar" class="hidden flex-1 max-w-md mx-4">
                     <div class="relative">
-                        <input type="text" id="search-input" placeholder="タイトル、会社名で検索..." 
-                               class="w-full bg-gray-100 border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        <input type="text" id="search-input" placeholder="検索..." class="w-full bg-gray-100 border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
                         <i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i>
-                        <button onclick="toggleSearch()" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button onclick="toggleSearch()" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
                     </div>
                 </div>
-
                 <div id="header-icons" class="flex items-center gap-5 text-gray-500 text-lg">
                     <i class="fas fa-search cursor-pointer hover:text-blue-600" onclick="toggleSearch()"></i>
                     <i class="fas fa-user-circle cursor-pointer hover:text-blue-600"></i>
@@ -70,19 +52,8 @@
 
     <main class="max-w-6xl mx-auto px-4 py-8">
         <section id="home-section">
-            <div id="feature-container" class="mb-12">
-                <h2 class="text-xl font-bold mb-5 flex items-center gap-2 text-gray-800">
-                    <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
-                    特集：注目のコンテンツ
-                </h2>
-                <div id="feature-list" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-            </div>
-
-            <div class="mb-6">
-                <h2 id="list-title" class="text-xl font-bold text-gray-800">人気のコンテンツ</h2>
-            </div>
-            <div id="game-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10"></div>
-            
+            <div id="category-container">
+                </div>
             <div id="no-results" class="hidden py-20 text-center text-gray-500">
                 <i class="fas fa-search fa-3x mb-4 opacity-20"></i>
                 <p>該当するアプリが見つかりません</p>
@@ -93,21 +64,16 @@
             <button onclick="showHome()" class="mb-8 text-gray-500 font-medium flex items-center gap-2 hover:text-blue-600 transition">
                 <i class="fas fa-arrow-left"></i> 一覧に戻る
             </button>
-            
             <div class="flex flex-col md:flex-row gap-10 items-start">
                 <img id="detail-img" src="" class="w-32 h-32 md:w-48 md:h-48 rounded-[2.2rem] shadow-xl border border-gray-50 object-cover">
                 <div class="flex-1">
                     <h2 id="detail-title" class="text-3xl md:text-4xl font-bold mb-0.5"></h2>
                     <p id="detail-company" class="text-[#01875f] font-bold text-lg mb-0.5"></p>
                     <p id="detail-category" class="text-gray-500 text-sm mb-6"></p>
-                    
                     <div class="flex gap-3 mb-10">
-                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg shadow-green-50 transition-all text-center">今すぐ遊ぶ</a>
-                        <button onclick="shareGame()" class="p-3 border border-gray-200 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-50 transition">
-                            <i class="fas fa-share-alt text-gray-500"></i>
-                        </button>
+                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg transition-all text-center">今すぐ遊ぶ</a>
+                        <button onclick="shareGame()" class="p-3 border border-gray-200 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-50 transition"><i class="fas fa-share-alt text-gray-500"></i></button>
                     </div>
-                    
                     <div class="border-t border-gray-100 pt-8">
                         <h3 class="font-bold text-lg mb-4 text-gray-900">このアプリについて</h3>
                         <p id="detail-desc" class="text-gray-600 leading-relaxed text-base whitespace-pre-wrap"></p>
@@ -124,31 +90,22 @@
 
 <script>
     let games = [];
-    let featured = [];
     let currentFilter = 'all';
     let searchQuery = '';
     let currentSelectedApp = null;
 
-    // 画像やJSONのキャッシュを回避するための共通関数
     function getCacheBustingUrl(url) {
         if (!url) return "";
-        const timestamp = new Date().getTime();
-        const separator = url.includes('?') ? '&' : '?';
-        return `${url}${separator}v=${timestamp}`;
+        return `${url}${url.includes('?') ? '&' : '?'}v=${new Date().getTime()}`;
     }
 
-    // データ読み込み
     async function loadData() {
         try {
-            // JSON自体のキャッシュを回避
             const response = await fetch(getCacheBustingUrl('games.json'));
             const data = await response.json();
-            
             games = data.games;
-            featured = data.featured;
             init();
 
-            // URLパラメータ ?id=XX をチェックして初期表示を切り替え
             const params = new URLSearchParams(window.location.search);
             const appId = params.get('id');
             if (appId) {
@@ -161,41 +118,99 @@
     }
 
     function init() {
-        renderFeatured();
-        renderList();
-        
+        renderCategoryLists();
         document.getElementById('search-input').addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase();
-            renderList();
-            document.getElementById('feature-container').style.display = searchQuery ? 'none' : 'block';
+            renderCategoryLists();
         });
 
-        // ブラウザの「戻る」ボタンに対応
         window.onpopstate = (event) => {
             const params = new URLSearchParams(window.location.search);
             const appId = params.get('id');
             if (appId) {
                 const targetApp = games.find(g => g.id == appId);
-                if (targetApp) {
-                    currentSelectedApp = targetApp;
-                    updateDetailUI(targetApp);
-                }
+                if (targetApp) updateDetailUI(targetApp);
             } else {
-                currentSelectedApp = null;
-                document.getElementById('home-section').classList.remove('hidden');
-                document.getElementById('detail-section').classList.add('hidden');
+                showHome();
             }
         };
     }
 
+    function renderCategoryLists() {
+        const container = document.getElementById('category-container');
+        const noResults = document.getElementById('no-results');
+        container.innerHTML = '';
+
+        // フィルタリング
+        let filtered = games.filter(g => {
+            const matchesType = (currentFilter === 'all' || g.type === currentFilter);
+            const matchesSearch = (g.title.toLowerCase().includes(searchQuery) || g.company.toLowerCase().includes(searchQuery));
+            return matchesType && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+            noResults.classList.remove('hidden');
+            return;
+        }
+        noResults.classList.add('hidden');
+
+        // カテゴリの定義（表示順）
+        const categories = [
+            { id: 'game', label: '量子ゲーム' },
+            { id: 'app', label: 'ツール・アプリ' }
+        ];
+
+        // 検索中の場合はカテゴリ分けせず一括表示、そうでない場合はカテゴリ分け
+        if (searchQuery) {
+            renderSection(container, "検索結果", filtered);
+        } else {
+            categories.forEach(cat => {
+                const catApps = filtered.filter(g => g.type === cat.id);
+                if (catApps.length > 0) {
+                    renderSection(container, cat.label, catApps);
+                }
+            });
+        }
+    }
+
+    function renderSection(parent, title, items) {
+        const section = document.createElement('div');
+        section.className = "mb-12";
+        
+        const heading = document.createElement('h2');
+        heading.className = "text-xl font-bold mb-6 flex items-center gap-2 text-gray-800";
+        heading.innerHTML = `<span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>${title}`;
+        
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10";
+
+        items.forEach(g => {
+            const div = document.createElement('div');
+            div.className = "cursor-pointer game-card group";
+            div.onclick = () => showDetail(g);
+            div.innerHTML = `
+                <div class="aspect-square mb-3">
+                    <img src="${getCacheBustingUrl(g.img)}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
+                </div>
+                <div class="px-1">
+                    <h3 class="text-sm font-bold truncate text-gray-800">${g.title}</h3>
+                    <p class="text-[11px] text-[#01875f] font-bold">${g.company}</p>
+                    <p class="text-[11px] text-gray-400">${g.category}</p>
+                </div>`;
+            grid.appendChild(div);
+        });
+
+        section.appendChild(heading);
+        section.appendChild(grid);
+        parent.appendChild(section);
+    }
+
     function showDetail(data, pushHistory = true) {
         currentSelectedApp = data;
-        
         if (pushHistory) {
-            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?id=${data.id}`;
+            const newUrl = window.location.pathname + `?id=${data.id}`;
             window.history.pushState({ id: data.id }, '', newUrl);
         }
-
         updateDetailUI(data);
     }
 
@@ -204,10 +219,7 @@
         document.getElementById('detail-company').innerText = data.company;
         document.getElementById('detail-category').innerText = data.category;
         document.getElementById('detail-desc').innerText = data.desc;
-        
-        // 詳細画像の更新を強制
         document.getElementById('detail-img').src = getCacheBustingUrl(data.img);
-        
         document.getElementById('play-button').href = data.url;
         document.getElementById('home-section').classList.add('hidden');
         document.getElementById('detail-section').classList.remove('hidden');
@@ -215,92 +227,11 @@
     }
 
     function showHome() {
-        currentSelectedApp = null;
-        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        const cleanUrl = window.location.pathname;
         window.history.pushState({}, '', cleanUrl);
-
         document.getElementById('home-section').classList.remove('hidden');
         document.getElementById('detail-section').classList.add('hidden');
         window.scrollTo(0, 0);
-    }
-
-    function trackAppClick() {
-        if (currentSelectedApp) {
-            gtag('event', 'app_play_click', {
-                'app_name': currentSelectedApp.title,
-                'app_company': currentSelectedApp.company,
-                'app_category': currentSelectedApp.category,
-                'transport_type': 'beacon'
-            });
-        }
-    }
-
-    function renderList() {
-        const container = document.getElementById('game-list');
-        const noResults = document.getElementById('no-results');
-        container.innerHTML = '';
-        
-        // 1. まずフィルタリングを行う
-        let filtered = games.filter(g => {
-            const matchesType = (currentFilter === 'all' || g.type === currentFilter);
-            const matchesSearch = (g.title.toLowerCase().includes(searchQuery) || g.company.toLowerCase().includes(searchQuery));
-            return matchesType && matchesSearch;
-        });
-
-        // 2. フィルタリングされた結果をランダムにシャッフル (追加部分)
-        for (let i = filtered.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-        }
-
-        // 3. 描画処理（以下は既存と同じ）
-        if (filtered.length === 0) {
-            noResults.classList.remove('hidden');
-        } else {
-            noResults.classList.add('hidden');
-            filtered.forEach(g => {
-                const div = document.createElement('div');
-                div.className = "cursor-pointer game-card group";
-                div.onclick = () => showDetail(g);
-                
-                const imgSrc = getCacheBustingUrl(g.img);
-                
-                div.innerHTML = `
-                    <div class="aspect-square mb-3">
-                        <img src="${imgSrc}" class="w-full h-full rounded-[1.8rem] object-cover shadow-sm border border-gray-50 group-hover:shadow-md transition">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-sm font-bold truncate text-gray-800">${g.title}</h3>
-                        <p class="text-[11px] text-[#01875f] font-bold">${g.company}</p>
-                        <p class="text-[11px] text-gray-400">${g.category}</p>
-                    </div>`;
-                container.appendChild(div);
-            });
-        }
-    }
-
-    function renderFeatured() {
-        const container = document.getElementById('feature-list');
-        container.innerHTML = '';
-        featured.forEach(f => {
-            const gameData = games.find(g => g.id === f.id);
-            if(!gameData) return;
-            const div = document.createElement('div');
-            div.className = "bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer game-card";
-            div.onclick = () => showDetail(gameData);
-            
-            // 特集用画像の更新を強制
-            const imgSrc = getCacheBustingUrl(f.img);
-            
-            div.innerHTML = `
-                <img src="${imgSrc}" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <p class="text-[10px] text-blue-600 font-bold uppercase mb-1">${f.category}</p>
-                    <h3 class="font-bold text-gray-800 text-lg">${f.title}</h3>
-                    <p class="text-xs text-gray-500 mt-1">${f.desc}</p>
-                </div>`;
-            container.appendChild(div);
-        });
     }
 
     function toggleSearch() {
@@ -312,7 +243,7 @@
             bar.classList.remove('hidden'); logo.classList.add('hidden'); icons.classList.add('hidden'); input.focus();
         } else {
             bar.classList.add('hidden'); logo.classList.remove('hidden'); icons.classList.remove('hidden'); input.value = ''; searchQuery = '';
-            document.getElementById('feature-container').style.display = 'block'; renderList();
+            renderCategoryLists();
         }
     }
 
@@ -320,17 +251,16 @@
         currentFilter = type;
         ['all', 'game', 'app'].forEach(t => document.getElementById(`tab-${t}`).classList.remove('tab-active'));
         document.getElementById(`tab-${type}`).classList.add('tab-active');
-        renderList();
+        renderCategoryLists();
     }
 
     function shareGame() {
         if (!currentSelectedApp) return;
-        const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?id=${currentSelectedApp.id}`;
+        const shareUrl = window.location.origin + window.location.pathname + `?id=${currentSelectedApp.id}`;
         if (navigator.share) { 
             navigator.share({ title: `blueqat App | ${currentSelectedApp.title}`, url: shareUrl }); 
         } else { 
-            navigator.clipboard.writeText(shareUrl); 
-            alert("リンクをコピーしました！"); 
+            navigator.clipboard.writeText(shareUrl); alert("リンクをコピーしました！"); 
         }
     }
 
