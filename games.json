@@ -1,41 +1,4 @@
 {
-    "featured": [
-        { 
-            "id": 3, 
-            "title": "ロボプロ", 
-            "category": "プログラミング教育", 
-            "img": "thumbnail/robo_640x320.png", 
-            "desc": "ロボットを動かしながら論理的思考を養おう！" 
-        },
-        { 
-            "id": 1, 
-            "title": "ブロッホスフィア", 
-            "category": "次世代パズル", 
-            "img": "thumbnail/bloch_640x320.png", 
-            "desc": "最新科学「量子」の世界をゲームで体験。" 
-        },
-        { 
-            "id": 4, 
-            "title": "量子アニーリング", 
-            "category": "思考パズル", 
-            "img": "https://placehold.jp/20/f59e0b/ffffff/600x320.png?text=パズルで解く最適化", 
-            "desc": "難しい計算をパズルにして楽しもう！" 
-        },
-        { 
-            "id": 12, 
-            "title": "Quantum Race", 
-            "category": "ゲーム", 
-            "img": "thumbnail/race_640x320.png", 
-            "desc": "あなたは人類代表として、量子アニーリングAIとの4×4数独リアルタイム早解き対決に挑む。"
-        },
-        { 
-            "id": 14, 
-            "title": "QUANTUM REVERSI", 
-            "category": "ゲーム", 
-            "img": "thumbnail/reversi_640x320.png", 
-            "desc": "新しい量子インスパイアードのリバーシ！"
-        }
-    ],
     "games": [
         { 
             "id": 1, 
