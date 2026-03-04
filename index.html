@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFNR4KHBZQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,8 +11,16 @@
       gtag('js', new Date());
       gtag('config', 'G-KFNR4KHBZQ');
     </script>
-    <title>blueqat App | ゲームとアプリのポータル</title>
-    <meta name="description" content="量子コンピューティングを遊びながら学べる！量子ゲームとプログラミングアプリのポータルサイト。">
+    
+    <title>blueqat App | 量子ゲームとアプリのポータル</title>
+    <meta name="description" content="量子コンピューティングを遊びながら学べる！量子ゲーム、業務アプリ、シミュレータ、教育ツールのポータルサイト。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blueqat.app/">
+    <meta property="og:title" content="blueqat App | ゲームとアプリのポータル">
+    <meta property="og:image" content="https://blueqat.app/og-image.png">
+    <meta name="twitter:site" content="@blueqat_jp">
+    <link rel="icon" href="https://blueqat.app/favicon.ico">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -24,28 +33,37 @@
     </style>
 </head>
 <body class="bg-white text-gray-900">
+
     <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <h1 id="logo" class="text-2xl font-bold text-gray-700 tracking-tight cursor-pointer" onclick="showHome()">
                     <span class="text-blue-600">blueqat</span> App
                 </h1>
+
                 <div id="search-bar" class="hidden flex-1 max-w-md mx-4">
                     <div class="relative">
-                        <input type="text" id="search-input" placeholder="検索..." class="w-full bg-gray-100 border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        <input type="text" id="search-input" placeholder="タイトル、会社名で検索..." 
+                                class="w-full bg-gray-100 border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
                         <i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i>
-                        <button onclick="toggleSearch()" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+                        <button onclick="toggleSearch()" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
+
                 <div id="header-icons" class="flex items-center gap-5 text-gray-500 text-lg">
                     <i class="fas fa-search cursor-pointer hover:text-blue-600" onclick="toggleSearch()"></i>
                     <i class="fas fa-user-circle cursor-pointer hover:text-blue-600"></i>
                 </div>
             </div>
+
             <div class="flex gap-8 text-sm font-medium text-gray-500 overflow-x-auto no-scrollbar">
                 <button id="tab-all" onclick="filterType('all')" class="pb-2 px-1 tab-active whitespace-nowrap">すべて</button>
                 <button id="tab-game" onclick="filterType('game')" class="pb-2 px-1 hover:text-gray-900 whitespace-nowrap">ゲーム</button>
-                <button id="tab-app" onclick="filterType('app')" class="pb-2 px-1 hover:text-gray-900 whitespace-nowrap">アプリ</button>
+                <button id="tab-business" onclick="filterType('business')" class="pb-2 px-1 hover:text-gray-900 whitespace-nowrap">業務アプリ</button>
+                <button id="tab-simulator" onclick="filterType('simulator')" class="pb-2 px-1 hover:text-gray-900 whitespace-nowrap">シミュレータ</button>
+                <button id="tab-education" onclick="filterType('education')" class="pb-2 px-1 hover:text-gray-900 whitespace-nowrap">教育</button>
             </div>
         </div>
     </header>
@@ -54,6 +72,7 @@
         <section id="home-section">
             <div id="category-container">
                 </div>
+            
             <div id="no-results" class="hidden py-20 text-center text-gray-500">
                 <i class="fas fa-search fa-3x mb-4 opacity-20"></i>
                 <p>該当するアプリが見つかりません</p>
@@ -64,16 +83,21 @@
             <button onclick="showHome()" class="mb-8 text-gray-500 font-medium flex items-center gap-2 hover:text-blue-600 transition">
                 <i class="fas fa-arrow-left"></i> 一覧に戻る
             </button>
+            
             <div class="flex flex-col md:flex-row gap-10 items-start">
                 <img id="detail-img" src="" class="w-32 h-32 md:w-48 md:h-48 rounded-[2.2rem] shadow-xl border border-gray-50 object-cover">
                 <div class="flex-1">
                     <h2 id="detail-title" class="text-3xl md:text-4xl font-bold mb-0.5"></h2>
                     <p id="detail-company" class="text-[#01875f] font-bold text-lg mb-0.5"></p>
                     <p id="detail-category" class="text-gray-500 text-sm mb-6"></p>
+                    
                     <div class="flex gap-3 mb-10">
-                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg transition-all text-center">今すぐ遊ぶ</a>
-                        <button onclick="shareGame()" class="p-3 border border-gray-200 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-50 transition"><i class="fas fa-share-alt text-gray-500"></i></button>
+                        <a id="play-button" href="#" target="_blank" onclick="trackAppClick()" class="bg-[#01875f] text-white px-12 py-3 rounded-lg font-bold hover:bg-[#01704f] shadow-lg shadow-green-50 transition-all text-center">今すぐ遊ぶ</a>
+                        <button onclick="shareGame()" class="p-3 border border-gray-200 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-50 transition">
+                            <i class="fas fa-share-alt text-gray-500"></i>
+                        </button>
                     </div>
+                    
                     <div class="border-t border-gray-100 pt-8">
                         <h3 class="font-bold text-lg mb-4 text-gray-900">このアプリについて</h3>
                         <p id="detail-desc" class="text-gray-600 leading-relaxed text-base whitespace-pre-wrap"></p>
@@ -94,6 +118,14 @@
     let searchQuery = '';
     let currentSelectedApp = null;
 
+    // カテゴリ定義
+    const CATEGORY_CONFIG = [
+        { id: 'game', label: '量子ゲーム' },
+        { id: 'business', label: '業務アプリ' },
+        { id: 'simulator', label: 'シミュレータ' },
+        { id: 'education', label: '教育' }
+    ];
+
     function getCacheBustingUrl(url) {
         if (!url) return "";
         return `${url}${url.includes('?') ? '&' : '?'}v=${new Date().getTime()}`;
@@ -106,6 +138,7 @@
             games = data.games;
             init();
 
+            // URLパラメータによる詳細表示の復元
             const params = new URLSearchParams(window.location.search);
             const appId = params.get('id');
             if (appId) {
@@ -119,6 +152,7 @@
 
     function init() {
         renderCategoryLists();
+        
         document.getElementById('search-input').addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase();
             renderCategoryLists();
@@ -131,7 +165,7 @@
                 const targetApp = games.find(g => g.id == appId);
                 if (targetApp) updateDetailUI(targetApp);
             } else {
-                showHome();
+                showHomeUI();
             }
         };
     }
@@ -154,17 +188,16 @@
         }
         noResults.classList.add('hidden');
 
-        // カテゴリの定義（表示順）
-        const categories = [
-            { id: 'game', label: '量子ゲーム' },
-            { id: 'app', label: 'ツール・アプリ' }
-        ];
-
-        // 検索中の場合はカテゴリ分けせず一括表示、そうでない場合はカテゴリ分け
         if (searchQuery) {
+            // 検索時は一括表示
             renderSection(container, "検索結果", filtered);
+        } else if (currentFilter !== 'all') {
+            // 特定カテゴリ選択時
+            const catInfo = CATEGORY_CONFIG.find(c => c.id === currentFilter);
+            renderSection(container, catInfo ? catInfo.label : "コンテンツ", filtered);
         } else {
-            categories.forEach(cat => {
+            // 「すべて」表示時：定義順にセクションを生成
+            CATEGORY_CONFIG.forEach(cat => {
                 const catApps = filtered.filter(g => g.type === cat.id);
                 if (catApps.length > 0) {
                     renderSection(container, cat.label, catApps);
@@ -177,13 +210,15 @@
         const section = document.createElement('div');
         section.className = "mb-12";
         
-        const heading = document.createElement('h2');
-        heading.className = "text-xl font-bold mb-6 flex items-center gap-2 text-gray-800";
-        heading.innerHTML = `<span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>${title}`;
-        
-        const grid = document.createElement('div');
-        grid.className = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10";
+        section.innerHTML = `
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-800">
+                <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
+                ${title}
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10"></div>
+        `;
 
+        const grid = section.querySelector('div');
         items.forEach(g => {
             const div = document.createElement('div');
             div.className = "cursor-pointer game-card group";
@@ -199,9 +234,6 @@
                 </div>`;
             grid.appendChild(div);
         });
-
-        section.appendChild(heading);
-        section.appendChild(grid);
         parent.appendChild(section);
     }
 
@@ -221,14 +253,19 @@
         document.getElementById('detail-desc').innerText = data.desc;
         document.getElementById('detail-img').src = getCacheBustingUrl(data.img);
         document.getElementById('play-button').href = data.url;
+        
         document.getElementById('home-section').classList.add('hidden');
         document.getElementById('detail-section').classList.remove('hidden');
         window.scrollTo(0, 0);
     }
 
     function showHome() {
-        const cleanUrl = window.location.pathname;
-        window.history.pushState({}, '', cleanUrl);
+        window.history.pushState({}, '', window.location.pathname);
+        showHomeUI();
+    }
+
+    function showHomeUI() {
+        currentSelectedApp = null;
         document.getElementById('home-section').classList.remove('hidden');
         document.getElementById('detail-section').classList.add('hidden');
         window.scrollTo(0, 0);
@@ -249,9 +286,21 @@
 
     function filterType(type) {
         currentFilter = type;
-        ['all', 'game', 'app'].forEach(t => document.getElementById(`tab-${t}`).classList.remove('tab-active'));
-        document.getElementById(`tab-${type}`).classList.add('tab-active');
+        const tabs = ['all', 'game', 'business', 'simulator', 'education'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`tab-${t}`);
+            if(btn) btn.classList.toggle('tab-active', t === type);
+        });
         renderCategoryLists();
+    }
+
+    function trackAppClick() {
+        if (currentSelectedApp) {
+            gtag('event', 'app_play_click', {
+                'app_name': currentSelectedApp.title,
+                'app_company': currentSelectedApp.company
+            });
+        }
     }
 
     function shareGame() {
