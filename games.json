@@ -1,194 +1,37 @@
-{
-    "games": [
-        { 
-            "id": 1, 
-            "type": "game", 
-            "title": "ブロッホスフィアスピンスケーター", 
-            "company": "Quantum Fabric", 
-            "category": "量子パズル", 
-            "img": "thumbnail/bloch_200x200.png", 
-            "desc": "量子ビットの状態を表す「ブロッホ球」を直感的に操作して、ターゲットの状態を目指すパズルゲームです。", 
-            "url": "https://bloch-sphere-bk-379803995398.us-west1.run.app/" 
-        },
-        { 
-            "id": 2, 
-            "type": "game", 
-            "title": "クォンタム・サーキット", 
-            "company": "Quantum Fabric", 
-            "category": "量子学習", 
-            "img": "thumbnail/circuit_200x200.png", 
-            "desc": "量子ゲートを並べて回路を構成し、目的の出力を得るパズル形式の学習コンテンツです。", 
-            "url": "https://copy-of-379803995398.us-west1.run.app/" 
-        },
-        { 
-            "id": 3, 
-            "type": "app", 
-            "title": "ロボプロ", 
-            "company": "Quantum Fabric", 
-            "category": "プログラミング", 
-            "img": "thumbnail/robo_200x200.png", 
-            "desc": "ロボットの制御アルゴリズムを学べる教育アプリ。論理的な思考とプログラミングの基礎を楽しく習得できます。", 
-            "url": "https://roboprogram.netlify.app/" 
-        },
-        { 
-            "id": 4, 
-            "type": "game", 
-            "title": "パズルで始める量子アニーリング", 
-            "company": "Vignette & Clarity", 
-            "category": "量子パズル", 
-            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=QUBO", 
-            "desc": "組合せ最適化問題を解く「量子アニーリング」の仕組みを、パズル感覚で体験。QUBOモデルの構築を理解しましょう。", 
-            "url": "https://vigne-cla.xxxx.jp/qubo-play/" 
-        },
-        { 
-            "id": 5, 
-            "type": "game", 
-            "title": "QUANTUM SUDOKU SOLVER", 
-            "company": "Yuichiro Minato", 
-            "category": "量子パズル", 
-            "img": "thumbnail/sudoku_200x200.png", 
-            "desc": "数独パズルを作ったり解いたりできるソルバーです。", 
-            "url": "https://minatoyuichiro.github.io/sudoku_js_ising/" 
-        },
-        { 
-            "id": 6, 
-            "type": "app", 
-            "title": "色塗りわけ2015", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/color_200x200.png", 
-            "desc": "このプログラムは2015年に作成された、D-Waveマシンで実行された「カナダの地図塗り分け（グラフ彩色問題）」をシミュレートしたものです。", 
-            "url": "https://minatoyuichiro.github.io/graphcoloring/" 
-        },
-        { 
-            "id": 7, 
-            "type": "app", 
-            "title": "QUBO Studio", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/qubo_200x200.png", 
-            "desc": "QUBOのプログラミングを学ぶアプリ。Chromeでの動作推奨", 
-            "url": "https://minatoyuichiro.github.io/qubostudio/" 
-        },
-        { 
-            "id": 8, 
-            "type": "game", 
-            "title": "Tensor Nexus", 
-            "company": "Quantum Fabric", 
-            "category": "アプリ", 
-            "img": "thumbnail/tensor_200x200.png", 
-            "desc": "Tensor Networkを学んで遊べる", 
-            "url": "https://copy-of-tensor-nexus-379803995398.us-west1.run.app/" 
-        },
-        { 
-            "id": 9, 
-            "type": "app", 
-            "title": "QS Studio", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/QS_200x200.png", 
-            "desc": "5量子ビットの量子コンピュータシミュレータ", 
-            "url": "https://minatoyuichiro.github.io/gatestudio/" 
-        },
-        { 
-            "id": 10, 
-            "type": "app", 
-            "title": "autoQAOA", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/autoQAOA_200x200.png", 
-            "desc": "少数量子ビットでのQAOAの自動化。ハミルトニアンを作ると回路と結果が出ます。", 
-            "url": "https://minatoyuichiro.github.io/autoqaoa2/" 
-        },
-        { 
-            "id": 11, 
-            "type": "app", 
-            "title": "量子アニーリングシミュレーション", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/QA_200x200.png", 
-            "desc": "このプログラムは、量子アニーリング（量子焼きなまし法）の過程を可視化しています。", 
-            "url": "https://minatoyuichiro.github.io/js_annealing/" 
-        },
-        { 
-            "id": 12, 
-            "type": "game", 
-            "title": "Quantum Race", 
-            "company": "Quantum Fabric", 
-            "category": "ゲーム", 
-            "img": "thumbnail/race_200x200.png", 
-            "desc": "あなたは人類代表として、量子アニーリングAIとの4×4数独リアルタイム早解き対決に挑む。", 
-            "url": "https://candid-pika-40b53f.netlify.app/" 
-        },
-        { 
-            "id": 13, 
-            "type": "game", 
-            "title": "QUANTUM GLITCH", 
-            "company": "Quantum Fabric", 
-            "category": "ゲーム", 
-            "img": "thumbnail/glitch_200x200.png", 
-            "desc": "", 
-            "url": "https://quantum-glitch-entangled-states-379803995398.us-west1.run.app/" 
-        },
-        { 
-            "id": 14, 
-            "type": "game", 
-            "title": "QUANTUM REVERSI", 
-            "company": "Quantum Fabric", 
-            "category": "ゲーム", 
-            "img": "thumbnail/reversi_200x200.png", 
-            "desc": "", 
-            "url": "https://quantum-reversi-379803995398.us-west1.run.app/" 
-        },
-        { 
-            "id": 15, 
-            "type": "game", 
-            "title": "Multi-World Overdrive", 
-            "company": "Quantum Fabric", 
-            "category": "ゲーム", 
-            "img": "thumbnail/multi_200x200.png", 
-            "desc": "", 
-            "url": "https://multi-worldoverdrive.netlify.app/" 
-        },
-        { 
-            "id": 16, 
-            "type": "app", 
-            "title": "AI店長", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/shift_200x200.png", 
-            "desc": "AI店長がバイトのシフトを自動で決めてくれるデモアプリ", 
-            "url": "https://minatoyuichiro.github.io/aitencho/" 
-        },
-        { 
-            "id": 17, 
-            "type": "app", 
-            "title": "本格鉄道シミュレータ", 
-            "company": "Quantum Fabric", 
-            "category": "アプリ", 
-            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Train", 
-            "desc": "電車のシミュレーションをする際の線路の設計ができます。", 
-            "url": "https://flourishing-parfait-c1cc58.netlify.app/" 
-        },
-        { 
-            "id": 18, 
-            "type": "app", 
-            "title": "量子ルート検索", 
-            "company": "Yuichiro Minato", 
-            "category": "アプリ", 
-            "img": "thumbnail/route_200x200.png", 
-            "desc": "ルート検索をしてくれるデモンストレーションアプリ。", 
-            "url": "https://minatoyuichiro.github.io/route/" 
-        },
-        { 
-            "id": 18, 
-            "type": "game", 
-            "title": "Quantum Tactics", 
-            "company": "Quantum Fabric", 
-            "category": "ゲーム", 
-            "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tactics", 
-            "desc": "", 
-            "url": "https://quantum-tactics.netlify.app/" 
-        }
-    ]
-}
+[
+    { 
+        "id": 1, 
+        "type": "game", 
+        "title": "ブロッホスフィアスピンスケーター", 
+        "company": "Quantum Fabric", 
+        "img": "thumbnail/bloch_200x200.png", 
+        "desc": "量子ビットの状態を表す「ブロッホ球」を直感的に操作して、ターゲットの状態を目指すパズルゲームです。", 
+        "url": "https://bloch-sphere-bk-379803995398.us-west1.run.app/" 
+    },
+    { 
+        "id": 2, 
+        "type": "education", 
+        "title": "クォンタム・サーキット", 
+        "company": "Quantum Fabric", 
+        "img": "thumbnail/circuit_200x200.png", 
+        "desc": "量子ゲートを並べて回路を構成し、目的の出力を得るパズル形式の学習コンテンツです。", 
+        "url": "https://copy-of-379803995398.us-west1.run.app/" 
+    },
+    { "id": 3, "type": "education", "title": "ロボプロ", "company": "Quantum Fabric", "img": "thumbnail/robo_200x200.png", "desc": "ロボットの制御アルゴリズムを学べる教育アプリ。", "url": "https://roboprogram.netlify.app/" },
+    { "id": 4, "type": "education", "title": "パズルで始める量子アニーリング", "company": "Vignette & Clarity", "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=QUBO", "desc": "量子アニーリングの仕組みをパズル感覚で体験。", "url": "https://vigne-cla.xxxx.jp/qubo-play/" },
+    { "id": 5, "type": "game", "title": "QUANTUM SUDOKU SOLVER", "company": "Yuichiro Minato", "img": "thumbnail/sudoku_200x200.png", "desc": "数独パズルを作ったり解いたりできるソルバーです。", "url": "https://minatoyuichiro.github.io/sudoku_js_ising/" },
+    { "id": 6, "type": "simulator", "title": "色塗りわけ2015", "company": "Yuichiro Minato", "img": "thumbnail/color_200x200.png", "desc": "D-Waveマシンでのグラフ彩色問題シミュレーション。", "url": "https://minatoyuichiro.github.io/graphcoloring/" },
+    { "id": 7, "type": "simulator", "title": "QUBO Studio", "company": "Yuichiro Minato", "img": "thumbnail/qubo_200x200.png", "desc": "QUBOのプログラミングを学ぶアプリ。", "url": "https://minatoyuichiro.github.io/qubostudio/" },
+    { "id": 8, "type": "education", "title": "Tensor Nexus", "company": "Quantum Fabric", "img": "thumbnail/tensor_200x200.png", "desc": "Tensor Networkを学んで遊べる。", "url": "https://copy-of-tensor-nexus-379803995398.us-west1.run.app/" },
+    { "id": 9, "type": "simulator", "title": "QS Studio", "company": "Yuichiro Minato", "img": "thumbnail/QS_200x200.png", "desc": "5量子ビットの量子コンピュータシミュレータ", "url": "https://minatoyuichiro.github.io/gatestudio/" },
+    { "id": 10, "type": "simulator", "title": "autoQAOA", "company": "Yuichiro Minato", "img": "thumbnail/autoQAOA_200x200.png", "desc": "少数量子ビットでのQAOAの自動化。", "url": "https://minatoyuichiro.github.io/autoqaoa2/" },
+    { "id": 11, "type": "simulator", "title": "量子アニーリングシミュレーション", "company": "Yuichiro Minato", "img": "thumbnail/QA_200x200.png", "desc": "量子アニーリングの過程を可視化。", "url": "https://minatoyuichiro.github.io/js_annealing/" },
+    { "id": 12, "type": "game", "title": "Quantum Race", "company": "Quantum Fabric", "img": "thumbnail/race_200x200.png", "desc": "量子アニーリングAIとの数独早解き対決。", "url": "https://candid-pika-40b53f.netlify.app/" },
+    { "id": 13, "type": "game", "title": "QUANTUM GLITCH", "company": "Quantum Fabric", "img": "thumbnail/glitch_200x200.png", "desc": "量子的なバグを利用して攻略するアクションゲーム。", "url": "https://quantum-glitch-entangled-states-379803995398.us-west1.run.app/" },
+    { "id": 14, "type": "game", "title": "QUANTUM REVERSI", "company": "Quantum Fabric", "img": "thumbnail/reversi_200x200.png", "desc": "量子状態を応用した新しいルールのリバーシ。", "url": "https://quantum-reversi-379803995398.us-west1.run.app/" },
+    { "id": 15, "type": "game", "title": "Multi-World Overdrive", "company": "Quantum Fabric", "img": "thumbnail/multi_200x200.png", "desc": "多世界解釈をテーマにしたハイスピードアクション。", "url": "https://multi-worldoverdrive.netlify.app/" },
+    { "id": 16, "type": "business", "title": "AI店長", "company": "Yuichiro Minato", "img": "thumbnail/shift_200x200.png", "desc": "バイトのシフトを自動で決めてくれるデモアプリ", "url": "https://minatoyuichiro.github.io/aitencho/" },
+    { "id": 17, "type": "simulator", "title": "本格鉄道シミュレータ", "company": "Quantum Fabric", "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Train", "desc": "線路の設計シミュレーションができます。", "url": "https://flourishing-parfait-c1cc58.netlify.app/" },
+    { "id": 18, "type": "business", "title": "量子ルート検索", "company": "Yuichiro Minato", "img": "thumbnail/route_200x200.png", "desc": "ルート検索をしてくれるデモンストレーションアプリ。", "url": "https://minatoyuichiro.github.io/route/" },
+    { "id": 19, "type": "game", "title": "Quantum Tactics", "company": "Quantum Fabric", "img": "https://placehold.jp/100/f59e0b/ffffff/400x400.png?text=Tactics", "desc": "量子ビットの性質を戦術に組み込んだタクティクスゲーム。", "url": "https://quantum-tactics.netlify.app/" }
+]
